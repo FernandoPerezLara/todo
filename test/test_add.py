@@ -13,7 +13,7 @@ class TestAdd(unittest.TestCase):
     def test_add(self):
         """Test the add command."""
         fake = Faker('es_ES')
-        names = [fake.name() for i in range(random.randint(5, 10))]
+        names = [fake.name() for i in range(random.randint(10, 100))]
 
         for name in names:
             Add(name).run()
