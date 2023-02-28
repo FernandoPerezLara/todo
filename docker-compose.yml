@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  linter:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.linter
+    image: linter
+    container_name: linter
+    volumes:
+      - .:/usr/src/app
