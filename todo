@@ -2,10 +2,15 @@
 """Main module."""
 import click
 
+from scripts.commands.list import get_list
+
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def main():
     """Console application for creating, viewing and deleting events."""
+
+
+main.add_command(get_list)
 
 
 if __name__ == '__main__':
