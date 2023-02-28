@@ -22,3 +22,29 @@ class Request():
             raise TaskError("The request timed out", additional_info=e) from None
         except requests.exceptions.RequestException as e:
             raise TaskError("An unknown error occurred", additional_info=e) from None
+
+    def post(self, text):
+        """Post the response to the API."""
+        try:
+            return requests.post(self._url, timeout=self._timeout, data={"text": text}).json()
+        except requests.exceptions.HTTPError as e:
+            raise TaskError("An HTTP error occurred", additional_info=e) from None
+        except requests.exceptions.ConnectionError as e:
+            raise TaskError("A Connection error occurred", additional_info=e) from None
+        except requests.exceptions.Timeout as e:
+            raise TaskError("The request timed out", additional_info=e) from None
+        except requests.exceptions.RequestException as e:
+            raise TaskError("An unknown error occurred", additional_info=e) from None
+
+    def delete(self, id):
+        """Delete the response from the API."""
+        try:
+            return requests.delete(self._url + '/' + id, timeout=self._timeout).json()
+        except requests.exceptions.HTTPError as e:
+            raise TaskError("An HTTP error occurred", additional_info=e) from None
+        except requests.exceptions.ConnectionError as e:
+            raise TaskError("A Connection error occurred", additional_info=e) from None
+        except requests.exceptions.Timeout as e:
+            raise TaskError("The request timed out", additional_info=e) from None
+        except requests.exceptions.RequestException as e:
+            raise TaskError("An unknown error occurred", additional_info=e) from None
