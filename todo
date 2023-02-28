@@ -3,6 +3,8 @@
 import click
 
 from scripts.commands.list import get_list
+from scripts.commands.add import add_event
+from scripts.commands.delete import delete_event
 
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
@@ -11,6 +13,8 @@ def main():
 
 
 main.add_command(get_list)
+main.add_command(add_event)
+main.add_command(delete_event)
 
 
 if __name__ == '__main__':
