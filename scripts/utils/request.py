@@ -7,6 +7,11 @@ from scripts.utils.errors import TaskError
 class Request():
     """This class contains all the requests to the API."""
     def __init__(self, url, timeout=2.5):
+        """
+        Args:
+            url (str): url of the API.
+            timeout (float): timeout of the request. Defaults to 2.5.
+        """
         self._url = url
         self._timeout = timeout
     
