@@ -9,3 +9,30 @@ services:
     container_name: linter
     volumes:
       - .:/usr/src/app
+
+  test:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.test
+    image: test
+    container_name: test
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - server
+  
+  todo:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.app
+    image: todo
+    container_name: todo
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - server
+
+networks:
+  server:
+    name: node-todo_server
+    external: true
