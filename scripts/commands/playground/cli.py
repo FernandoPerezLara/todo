@@ -3,8 +3,8 @@ import logging
 import click
 from click import ClickException
 
-from .task import GenerateRandom, DeleteAll
 from scripts.utils.errors import TaskError
+from .task import DeleteAll, GenerateRandom
 
 
 logger = logging.getLogger(__name__)

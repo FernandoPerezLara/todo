@@ -1,6 +1,6 @@
 """This module implements the tasks related to deploy the playground."""
-from faker import Faker
 import random
+from faker import Faker
 
 from scripts.commands.add.task import Add
 from scripts.commands.delete.task import Delete
