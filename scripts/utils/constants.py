@@ -2,5 +2,5 @@
 from pathlib import Path
 
 
-API_URL = 'http://localhost:8080/api/todos'
+API_URL = 'http://node:8080/api/todos'
 PATH = Path("./output/")
