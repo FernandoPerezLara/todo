@@ -6,8 +6,8 @@ from .task import List
 
 
 @click.command(name="list")
-@click.option('-o', '--output', default='table', type=str, required=False,
-              help="Output format. Options: txt, table, json. Default: table.")
+@click.option('-o', '--output', type=click.Choice(['table', 'txt', 'json'], case_sensitive=False), default='table',
+              required=False,help="Output format. Default: table.")
 def get_list(output):
     """List all todo items."""
     try:
