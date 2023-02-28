@@ -1,8 +1,12 @@
 """This module implements the tasks related to display a list of todo."""
 import json
+import logging
 
 from scripts.utils.constants import API_URL
 from scripts.utils.request import Request
+
+
+logger = logging.getLogger(__name__)
 
 
 class List():
@@ -12,6 +16,7 @@ class List():
 
     def run(self):
         """Run the task."""
+        logger.info("Listing all todo items.")
         request = Request(API_URL, timeout=2.5).get()
 
         if self._output == 'table':
@@ -38,3 +43,5 @@ class List():
                 print(item['text'])
         else:
             print(json.dumps(request, indent=2, sort_keys=True))
+
+        logger.info("All todo items listed.")

@@ -1,9 +1,13 @@
 """This module implements the commands to create a new todo item."""
 import click
 from click import ClickException
+import logging
 
 from scripts.utils.errors import TaskError
 from .task import Add
+
+
+logger = logging.getLogger(__name__)
 
 
 @click.command(name='add')
@@ -13,4 +17,5 @@ def add_event(text):
     try:
         Add(text).run()
     except TaskError as e:
+        logger.error(f"{e.error_msg}. Additional info: {e.additional_info}")
         raise ClickException(f"An error occurred while creating a new event. Additional info: {e.error_msg}") from e

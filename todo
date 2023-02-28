@@ -1,16 +1,39 @@
 #!/usr/bin/env python3
 """Main module."""
+import logging
 import click
 
 from scripts.commands.list import get_list
 from scripts.commands.add import add_event
 from scripts.commands.delete import delete_event
+from scripts.utils.constants import PATH
+
+
+logger = logging.getLogger(__name__)
+
+
+def setup_logger(file):
+    """Configures the logging subsystem, setting the log level, log message format, and log files."""
+    logging.addLevelName(logging.WARNING, 'WARN')
+
+    logging.getLogger('urllib3').setLevel(logging.WARNING)
+    
+    main_handler = logging.FileHandler(file, mode='a')
+    main_handler.setLevel(logging.DEBUG)
+
+    logging.basicConfig(
+        handlers=[main_handler],
+        format='{asctime}.{msecs:03.0f}Z {levelname:<5} [{name} ({funcName}:{lineno})] {message}',
+        datefmt='%Y-%m-%dT%H:%M:%S',
+        style='{',
+        level=logging.DEBUG)
 
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def main():
     """Console application for creating, viewing and deleting events."""
-
+    PATH.mkdir(parents=True, exist_ok=True)
+    setup_logger("output/log.txt")
 
 main.add_command(get_list)
 main.add_command(add_event)
