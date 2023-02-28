@@ -6,6 +6,7 @@ import click
 from scripts.commands.list import get_list
 from scripts.commands.add import add_event
 from scripts.commands.delete import delete_event
+from scripts.commands.playground import playground
 from scripts.utils.constants import PATH
 
 
@@ -39,6 +40,7 @@ def main():
 main.add_command(get_list)
 main.add_command(add_event)
 main.add_command(delete_event)
+main.add_command(playground)
 
 
 if __name__ == '__main__':

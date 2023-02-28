@@ -1,0 +1,34 @@
+name: Example
+
+on:
+  workflow_dispatch:
+    inputs:
+      FORMAT:
+        description: Format
+        required: true
+        default: table
+
+jobs:
+  playground:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Deploy server
+        working-directory: ./node-todo/
+        run: docker-compose up -d
+
+      - name: Create random todo
+        run: docker-compose run todo playground add
+
+      - name: List todo
+        run: docker-compose run todo list --output ${{ github.event.inputs.FORMAT }}
+
+      - name: Delete todo
+        run: docker-compose run todo playground delete
+
+      - name: List todo
+        run: docker-compose run todo list --output ${{ github.event.inputs.FORMAT }}
