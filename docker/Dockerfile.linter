@@ -17,4 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 ##########################################
 FROM python AS linter
 
-CMD [ "pylint", "--rcfile=.pylintrc", "./todo" ]
+CMD [ "pylint", "--rcfile=.pylintrc", "./todo", "./scripts" ]
