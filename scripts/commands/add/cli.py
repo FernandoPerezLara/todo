@@ -1,5 +1,6 @@
 """This module implements the commands to create a new todo item."""
 import click
+from click import ClickException
 
 from scripts.utils.errors import TaskError
 from .task import Add
@@ -12,4 +13,4 @@ def add_event(text):
     try:
         Add(text).run()
     except TaskError as e:
-        raise TaskError(f"An error occurred while creating a new event. Additional info: {e.additional_info}") from e
+        raise ClickException(f"An error occurred while creating a new event. Additional info: {e.error_msg}") from e

@@ -1,5 +1,6 @@
 """This module implements the commands to display a list of todo."""
 import click
+from click import ClickException
 
 from scripts.utils.errors import TaskError
 from .task import List
@@ -13,4 +14,4 @@ def get_list(output):
     try:
         List(output).run()
     except TaskError as e:
-        raise TaskError(f"An error occurred while listing the todo items. Additional info: {e.additional_info}") from e
+        raise ClickException(f"An error occurred while listing the todo items. Additional info: {e.error_msg}") from e
