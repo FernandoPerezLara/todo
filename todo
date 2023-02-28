@@ -35,6 +35,7 @@ def main():
     PATH.mkdir(parents=True, exist_ok=True)
     setup_logger("output/log.txt")
 
+
 main.add_command(get_list)
 main.add_command(add_event)
 main.add_command(delete_event)
