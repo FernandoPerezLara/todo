@@ -1,7 +1,7 @@
 """This module implements the commands to display a list of todo."""
+import logging
 import click
 from click import ClickException
-import logging
 
 from scripts.utils.errors import TaskError
 from .task import List

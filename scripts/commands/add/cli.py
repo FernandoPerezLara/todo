@@ -1,7 +1,7 @@
 """This module implements the commands to create a new todo item."""
+import logging
 import click
 from click import ClickException
-import logging
 
 from scripts.utils.errors import TaskError
 from .task import Add

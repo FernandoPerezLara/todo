@@ -17,7 +17,7 @@ def setup_logger(file):
     logging.addLevelName(logging.WARNING, 'WARN')
 
     logging.getLogger('urllib3').setLevel(logging.WARNING)
-    
+
     main_handler = logging.FileHandler(file, mode='a')
     main_handler.setLevel(logging.DEBUG)
 
