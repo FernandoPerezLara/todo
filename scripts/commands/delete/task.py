@@ -15,4 +15,4 @@ class Delete():
         for item in request:
             if item['text'] == self._text:
                 Request(API_URL, timeout=2.5).delete(id=item['_id'])
-                break        
+                break
