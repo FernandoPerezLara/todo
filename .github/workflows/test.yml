@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on:
   push:
@@ -16,7 +16,6 @@ jobs:
           submodules: recursive
 
       - name: Deploy server
-        # docker compose up from folder ./node-todo/
         working-directory: ./node-todo/
         run: docker-compose up -d
 
