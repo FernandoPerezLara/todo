@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Main module."""
+import click
 
 
+@click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def main():
-    """Main function."""
+    """Console application for creating, viewing and deleting events."""
 
 
 if __name__ == '__main__':
