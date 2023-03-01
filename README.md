@@ -119,5 +119,7 @@ docker-compose run linter
 docker-compose run test
 ```
 
+To make it easier to search for errors, a log system has been implemented and can be found at [./output/logs.txt](https://github.com/FernandoPerezLara/todo/blob/main/output/logs.txt).
+
 ## Contributors
 - [Fernando Pérez Lara](https://www.linkedin.com/in/fernandoperezlara/) ([**@FernandoPerezLara**](https://github.com/FernandoPerezLara)) for developing this project.
