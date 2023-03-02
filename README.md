@@ -47,6 +47,9 @@ To install this application on a local machine, it can be done in two ways, but 
 ```bash
 git clone https://github.com/FernandoPerezLara/todo.git
 cd todo
+
+git submodule init & git submodule update
+git config submodule.recurse true
 ```
 
 ### Method 1. Installation with Docker (like the pros 🎩).
